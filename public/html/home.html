@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="jumbotron">
+		<div class="container">
+			<h1>MeanKart</h1>
+			<p>
+				This is a sample Node.js application to demonstrate microservice architecture.
+				It includes a front-facing angular application rendered via Express and multiple
+				microservices running at the backend. The communication is handled via an API orchestration layer
+				and RabbitMQ
+			</p>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="container">
+		<p>
+			Please join us by <a href ng-click="homeCtrl.go('login')">signing in</a> or <a href ng-click="homeCtrl.go('register')">signing up</a>.
+		</p>
+		
+	</div>
+</div>
+<div class="row" ng-show="homeCtrl.authenticated()">
+	<div class="container">
+		<p>
+			View our catalog of <a href ng-click="homeCtrl.go('products')">products</a>.
+		</p>
+	</div>
+</div>

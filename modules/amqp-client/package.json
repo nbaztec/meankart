@@ -1,0 +1,17 @@
+{
+  "name": "amqp-client",
+  "version": "0.0.1",
+  "description": "AMQP Client",
+  "main": "index.js",
+  "author": {
+    "name": "Nisheeth Barthwal",
+    "email": "nbaztec@gmail.com"
+  },
+  "dependencies": {
+    "amqplib": "^0.4.0",
+    "lodash": "^3.10.1",
+    "node-uuid": "^1.4.3",
+    "when": "^3.7.3"
+  },
+  "readme": "ERROR: No README data found!"
+}

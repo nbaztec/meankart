@@ -1,0 +1,36 @@
+{
+  "name": "meankart",
+  "authors": [
+    "Nisheeth Barthwal <nbaztec@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-messages": "~1.4.7",
+    "bootstrap-social": "~4.8.0",
+    "datatables-plugins": "~1.0.1",
+    "datatables-responsive": "~1.0.3",
+    "flot.tooltip": "~0.8.4",
+    "flot": "~0.8.3",
+    "holderjs": "~2.4.1",
+    "metisMenu": "~1.1.3",
+    "mocha": "~1.17.1",
+    "morrisjs": "~0.5.1",
+    "ngToast": "ngtoast#~1.5.6",
+    "ngstorage": "~0.3.10",
+    "angular-route": "~1.4.9",
+    "angular-loading-bar": "~0.8.0"
+  }
+}

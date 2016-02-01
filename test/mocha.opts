@@ -1,0 +1,5 @@
+-b
+--check-leaks
+--recursive
+--reporter spec
+--ui bdd

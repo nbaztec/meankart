@@ -1,0 +1,12 @@
+block flash_messages
+  if flash_messages.length
+    .col-sm-12
+      .panel.panel-default 
+        .panel-heading Messages
+        .panel-body
+          - var classMap = {'error': 'danger', 'success': 'success', 'notice': 'info', '_': 'info'};
+          - function getMessageClass(c) { return classMap[c]? classMap[c]: classMap['_']; }
+          each list, key in flash_messages
+            each val, i in list
+              div.alert.alert-dismissable(class="alert-#{getMessageClass(key)}")= val
+                button(type='button', class='close', data-dismiss='alert', aria-hidden='true') &times; 

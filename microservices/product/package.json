@@ -1,0 +1,17 @@
+{
+  "name": "meankart-product",
+  "version": "0.0.1",
+  "description": "Product microservice",
+  "main": "index.js",
+  "author": {
+    "name": "Nisheeth Barthwal",
+    "email": "nbaztec@gmail.com"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "lodash": "^4.0.1",
+    "mongoose": "^4.2.2",
+    "validator": "^4.5.1"
+  },
+  "readme": "ERROR: No README data found!"
+}

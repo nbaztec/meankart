@@ -1,0 +1,103 @@
+#!/usr/bin/env node
+
+var pm2 = require('pm2');
+var apps = [{
+  name      : "meankart.user",
+  script    : "microservices/user/index.js",
+  out_file  : 'logs/user.out.log',
+  error_file  : 'logs/user.err.log',
+  instances : 2,
+  env: {
+    NODE_ENV: "development"
+  },
+  env_production : {
+    NODE_ENV: "production"
+  }
+}];
+
+module.exports = {
+  init: function (cb) {
+    pm2.connect(function() {
+      pm2.start(apps, function(err, processes) {
+        if (err) return cb(err, null);
+        //pm2.disconnect();  // Close connections to PM2
+        cb(null, processes);
+      });
+    });
+  },
+  
+  apps: function() {
+    return apps;
+  },
+  
+  list: function(cb) {
+    pm2.list(cb);
+  },
+  
+  stop: function(cb) {
+    var length = apps.length;
+    var counter = 0;
+    try {
+      apps.forEach(function(v) {
+        console.log('Stopping: ' + v['name']);
+        pm2.stop(v['name'], function (err, proc) {
+          if (err) throw new Error(err);
+          if ( ! proc.success) throw new Error('Error stopping service. `success` returned false.');
+          
+          pm2.delete(v['name'], function (err) {
+            if (err) throw new Error(err);
+            
+            if (++counter === length) {
+              pm2.disconnect();  // Close connections to PM2
+              cb();
+            }
+          });
+        });
+      });
+    } catch (err) {
+      console.log(err);
+      cb(err);
+    }
+  },
+
+  reloadAll: function(cb) {
+    var length = apps.length;
+    var counter = 0;
+    try {
+      apps.forEach(function(v) {
+        console.log('Reloading: ' + v['name']);
+        pm2.gracefulReload(v['name'], function (err, proc) {
+          if (err) throw new Error(err);
+          if ( ! proc.success) throw new Error('Error reloading service. `success` returned false.');
+          if (++counter === length) cb();
+        });
+      });
+    } catch (err) {
+      cb(err);
+    }
+  },
+  
+  restartAll: function(cb) {
+    var length = apps.length;
+    var counter = 0;
+    try {
+      apps.forEach(function(v) {
+        console.log('Restarting: ' + v['name']);
+        pm2.restart(v['name'], function (err, proc) {
+          if (err) throw new Error(err);
+          if ( ! proc.success) throw new Error('Error restarting service. `success` returned false.');
+          if (++counter === length) cb();
+        });
+      });
+    } catch (err) {
+      cb(err);
+    }
+  },
+  
+  
+  reload: function(name, cb) {
+    pm2.gracefulReload(name, function(err, proc) {
+      cb(err, proc);
+    });
+  }
+};

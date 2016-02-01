@@ -1,0 +1,94 @@
+block _meta
+- var noSidemenu = user == undefined;
+
+doctype html
+html(lang='en', ng-app=app)
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title= title
+
+    // Bootstrap Core CSS
+    link(href='/components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+
+    // MetisMenu CSS
+    link(href='/components/metisMenu/dist/metisMenu.min.css', rel='stylesheet')
+
+    // Timeline CSS
+    link(href='/css/timeline.css', rel='stylesheet')
+
+    // Custom CSS
+    link(href='/css/sb-admin-2.css', rel='stylesheet')
+
+    // Morris Charts CSS
+    link(href='/components/morrisjs/morris.css', rel='stylesheet')
+
+    // Custom Fonts
+    link(href='/components/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    
+    // ngToast
+    link(rel="stylesheet" href="/components/ngToast/dist/ngToast.min.css")
+
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries  
+    // WARNING: Respond.js doesn't work if you view the page via file://  
+    //
+      [if lt IE 9]>
+              <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+              <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]
+  body
+    div(id='wrapper')
+      
+      unless noMenu
+        include ../include/topbar
+      
+      unless noSidemenu
+        div(id='page-wrapper')
+          block content
+      else
+        div(id='page-wrapper', style="margin-left:0")
+        //  block content
+
+    // Element for ngToast
+    toast
+    
+    // Angularjs
+    script(src='/components/angular/angular.js')
+    script(src='/components/angular-route/angular-route.js')
+    script(src='/components/angular-messages/angular-messages.js')
+
+    // jQuery
+    script(src='/components/jquery/dist/jquery.min.js')
+
+    // Bootstrap Core JavaScript
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+
+    // Metis Menu Plugin JavaScript
+    script(src='/components/metisMenu/dist/metisMenu.min.js')
+
+    // Morris Charts JavaScript
+    script(src='/components/raphael/raphael-min.js')
+    script(src='/components/morrisjs/morris.min.js')
+    //script(src='/js/morris-data.js')
+      
+    // ngToast
+    script(src="/components/angular-animate/angular-animate.min.js")
+    script(src="/components/angular-sanitize/angular-sanitize.min.js")
+    script(src="/components/ngToast/dist/ngToast.min.js")
+    script(src="/components/ngstorage/ngStorage.min.js")
+
+    // Custom Theme JavaScript
+    script(src='/js/sb-admin-2.js')
+      
+    script(src='/js/app/meankart.js')
+    script(src='/js/app/config.js')
+    script(src='/js/app/controllers/register.js')
+    script(src='/js/app/controllers/login.js')
+    script(src='/js/app/interceptors/Auth.js')
+    script(src='/js/app/services/Auth.js')
+    script(src='/js/app/services/User.js')
+    script(src='/js/app/directives/compareTo.js')
+    script(src='/js/app/startup.js')

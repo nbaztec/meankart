@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<div class="login-panel panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Sign Up</h3>
+			</div>
+			<div class="panel-body">
+				<form name="regForm" role="form" ng-controller="RegisterController as registerCtrl" novalidate="novalidate">
+					<fieldset>
+						<div ng-class="{ 'has-error': regForm.name.$dirty && regForm.name.$invalid }" class="form-group">
+							<label>Name</label>
+							<input type="text" placeholder="Average Joe" name="name" autofocus="" ng-model="user.name" required="required" class="form-control"/>
+							<div ng-messages="regForm.name.$dirty && regForm.name.$error" class="text-danger">
+								<div ng-message="required">*Name is required</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input type="email" placeholder="average.joe@example.com" name="email" autofocus="" ng-model="user.email" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" placeholder="Password" name="password" value="" ng-model="user.password" required="required" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Confirm Password</label>
+							<input type="password" placeholder="Retype Password" name="password_confirm" value="" ng-model="user.password_confirm" required="required" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>Gender</label><br/>
+							<label class="radio-inline">
+								<input type="radio" name="gender" value="male" ng-model="user.gender" required="required"/>Male
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="gender" value="female" ng-model="user.gender" required="required"/>Female
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="gender" value="other" ng-model="user.gender" required="required"/>Other
+							</label>
+						</div>
+						<!-- Change this to a button or input when using this as a form-->
+						<button type="submit" ng-click="regForm.$valid && registerCtrl.doRegister(user)" class="btn btn-lg btn-success btn-block">Register</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

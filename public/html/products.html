@@ -1,0 +1,24 @@
+<div class="container">
+	<div class="" ng-controller="ProductController as prodCtrl">
+		<div class="col-lg-12">
+			<div class="col-md-12">Loaded {{prodCtrl.products.length}} products</div>
+			
+			<div class="col-md-5"  style="border: 1px solid darkgray; height:160px; margin:10px" ng-repeat="prod in prodCtrl.products">
+				<div class="col-md-8">
+					<strong>{{prod.name}}</strong>
+					<br />
+					<span>{{prod.brand}}</span>
+					<br />
+					<small>{{prod.description}}</small>
+				</div>
+				<div class="col-md-4">
+					<h2>${{prod.price}}</h2>
+					<br />
+					<a href="" class="btn btn-primary">Add to Cart</a>
+				</div>
+			</div>
+
+			<div class="col-md-12" style="text-align:center"><a href="" ng-click="prodCtrl.fetchProducts()" class="btn btn-warning">More</a></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "name": "meankart-auth",
+  "version": "0.0.1",
+  "description": "Authentication microservice",
+  "dependencies": {
+    "amqplib": "^0.4.0",
+    "lodash": "^3.10.1",
+    "node-uuid": "^1.4.3",
+    "redis": "^2.1.0",
+    "when": "^3.7.3"
+  }
+}
